@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Controls from './controls.js';
 import Statistik from './statistik.js';
-import FeedbacksModule from './feedbackModule.css'
+import FeedbacksModule from './feedbackModule.css';
 
 class feedback extends React.Component {
   static defaultProps = {
@@ -42,21 +42,27 @@ class feedback extends React.Component {
   render() {
     const total = this.countTotalFeedback();
     const positivePercentage = this.countPositiveFeedbackPercentage();
+    const good = this.state.good;
+    const neutral = this.state.neutral;
+    const bad = this.state.bad;
+    const goodIncrement = this.goodIncrement;
+    const neutralIncrement = this.neutralIncrement;
+    const badIncrement = this.badIncrement;
     return (
       <div>
         <span>Please leave feedback</span>
         <Controls
-          goodIncrement={this.goodIncrement}
-          neutralIncrement={this.neutralIncrement}
-          badIncrement={this.badIncrement}
+          goodIncrement={goodIncrement}
+          neutralIncrement={neutralIncrement}
+          badIncrement={badIncrement}
         />
         {total === 0 ? (
           <p>No feedback given!</p>
         ) : (
           <Statistik
-            good={this.state.good}
-            neutral={this.state.neutral}
-            bad={this.state.bad}
+            good={good}
+            neutral={neutral}
+            bad={bad}
             total={total}
             positivePercentage={positivePercentage}
           />
