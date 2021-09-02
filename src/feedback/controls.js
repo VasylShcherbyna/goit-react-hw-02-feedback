@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 const Controls = ({ goodIncrement, neutralIncrement, badIncrement }) => (
   <div class='conteiner-button'>
     <button class="button" type="button" onClick={goodIncrement}>
@@ -12,4 +13,16 @@ const Controls = ({ goodIncrement, neutralIncrement, badIncrement }) => (
     </button>
   </div>
 );
+
+Controls.propTypes = {
+  goodIncrement: PropTypes.func.isRequired,
+  neutralIncrement: PropTypes.func.isRequired,
+  badIncrement: PropTypes.func.isRequired,
+};
 export default Controls;
+
+
+
+  
+
+  
